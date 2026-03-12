@@ -1,5 +1,6 @@
 
 
+
 # Guardian Chip — LAYR NFC Authentication ASIC
 
 AES-128 mutual authentication chip for the [LAYR Open Chip Challenge 25/26](https://github.com/OCDCpro/LAYR).
@@ -40,7 +41,31 @@ First, install LibreLane by following the Nix-based installation instructions: h
 Invoke `nix-shell` the root directory of this repository. That will enable the correct LibreLane version.
 Use `make clone-pdk` to clone the required PDK.
 
-Running `make librelane-full-gdsfill-clean` will execute the flow (additional setup needed, see below).
+Running `make librelane-full-gdsfill-clean` will execute the flow (additional setup for gdsfill needed, see below).
+
+## gdsfill Setup
+
+gdsfill must be installed into a Python virtualenv before running the flow:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install git+https://github.com/aesc-silicon/gdsfill
+```
+
+> **Note:** The PyPI version of gdsfill is outdated. Install directly from the GitHub repository.
+
+After installation, one change is required in the gdsfill PDK support file to fix fill-to-routing spacing violations:
+
+**`venv/lib/python*/site-packages/gdsfill/ihp-sg13g2/prepare.py`, line ~161:**
+```python
+# Change from 0.42 to 0.50:
+MxFil_c = drawing.sized(0.50 * DB2NM)
+```
+
+This increases the routing keep-out margin from 0.42 µm to 0.50 µm to account for routing metal straddling tile boundaries (fixes `M2Fil.c` violations).
+
+The density targets for M2 and M3 are already configured in `gdsfill_config.yaml` (45 %, up from the default 35 %).
 
 ## Metal Density Fill
 
