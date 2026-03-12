@@ -14,6 +14,8 @@ A ready-to-use non-signed APK can be found in `/Android_LAYRSimulator/app/build/
 
 CAD-Files and a ready-to-print 3mf-file for the 3D-printed demonstrator case can be found in `/CAD`
 
+The resulting GDS-file can be found here: [GDS (222M)](https://www.cs.hs-rm.de/~reith/ihp/hsrmteam1.gds)
+
 ### Key RTL components
 
 | Module | Path | Description |
