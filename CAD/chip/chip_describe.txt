@@ -1,0 +1,31 @@
+Project: chip.hfp
+
+Print at 100% infill with a layer height of 0.1mm with a base layer of 0.2mm
+
+
+ The Model is 60x60mm in size
+
+The model is 1.40mm thick.
+The region from 1.20 to 1.40mm could have a Height Range Modifier to minimize print time.
+
+	#000000 PLA BambuLab Basic Black  Transmission Distance: 0.6
+	#ffffff PLA Kingroon White  Transmission Distance: 4.6
+This print uses 2 unique filaments
+
+Swap Instructions:
+	You do not set Layer Swaps in the slicer.  Instead each color slider is represented by an STL file.
+	The file is named with the filament at the end so it's easy to assign them in the slicer.
+	Load all of the STLs at once and your slicer will ask if it is a Multi-part model.  Select yes.
+	Load up your filaments, then assign them in the Object view tab by clicking on the colored box
+	and either pressing the number of the filament or clicking a second time and selecting from the dropdown.
+
+FlatForge Printing Instructions:
+	FlatForge prints REQUIRE automatic Filament Swapping.  There can be as many swaps per layer as you have sliders.
+	If you have selected Double Sided or Face Down the model is already rotated face down
+	and there is a transparent layer of your Base Layer thickness on the bottom.
+	Since this is a full layer, you may pause at layer 2 and swap a spool of filament (or a tool) and continue.
+	This is the only swap that will work.
+
+NOTICE: You may notice some small gaps and minor errors in the split files.
+This is a work in progress and I hope to have these resolved in future versions.
+In the meantime, small numbers of errors do not affect the print results.

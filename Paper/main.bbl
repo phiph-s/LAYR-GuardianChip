@@ -1,0 +1,318 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{23}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[{aesc-silicon}(2026)]%
+        {gdsfill}
+\bibfield{author}{\bibinfo{person}{{aesc-silicon}}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{title}{\texttt{gdsfill}: Metal Density Fill Tool for
+  Open-Source {PDKs}}.
+\newblock \bibinfo{howpublished}{GitHub:
+  \url{https://github.com/aesc-silicon/gdsfill}}.
+\newblock
+\newblock
+\shownote{Supports IHP~SG13G2 and Sky130; Track and Square tiling algorithms}.
+
+
+\bibitem[Canright(2005)]%
+        {canright2005}
+\bibfield{author}{\bibinfo{person}{David Canright}.}
+  \bibinfo{year}{2005}\natexlab{}.
+\newblock \showarticletitle{A Very Compact {Rijndael} {S-box}}. In
+  \bibinfo{booktitle}{\emph{Cryptographic Hardware and Embedded Systems -- CHES
+  2005}} \emph{(\bibinfo{series}{Lecture Notes in Computer Science},
+  Vol.~\bibinfo{volume}{3659})}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{441--455}.
+\newblock
+\href{https://doi.org/10.1007/11545262_32}{doi:\nolinkurl{10.1007/11545262_32}}
+
+
+\bibitem[coorus(2015)]%
+        {canright_github}
+\bibfield{author}{\bibinfo{person}{coorus}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \bibinfo{title}{Canright {AES} {S-boxes} -- {Verilog}
+  Implementation}.
+\newblock \bibinfo{howpublished}{GitHub:
+  \url{https://github.com/coruus/canright-aes-sboxes}}.
+\newblock
+\newblock
+\shownote{Verilog implementation of Canright's compact Rijndael S-box}.
+
+
+\bibitem[Dolev and Yao(1983)]%
+        {dolev1983protocol}
+\bibfield{author}{\bibinfo{person}{Danny Dolev} {and}
+  \bibinfo{person}{Andrew~C. Yao}.} \bibinfo{year}{1983}\natexlab{}.
+\newblock \showarticletitle{On the Security of Public Key Protocols}. In
+  \bibinfo{booktitle}{\emph{IEEE Transactions on Information Theory}},
+  Vol.~\bibinfo{volume}{29}. \bibinfo{pages}{198--208}.
+\newblock
+\href{https://doi.org/10.1109/TIT.1983.1056650}{doi:\nolinkurl{10.1109/TIT.1983.1056650}}
+
+
+\bibitem[Ehab(2022)]%
+        {ehab_aes_verilog}
+\bibfield{author}{\bibinfo{person}{Michael Ehab}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \bibinfo{title}{{AES-Verilog}: {AES-128} Hardware Implementation in
+  {Verilog}}.
+\newblock \bibinfo{howpublished}{GitHub:
+  \url{https://github.com/michaelehab/AES-Verilog}}.
+\newblock
+\newblock
+\shownote{Single-cycle, fully unrolled combinatorial AES-128 datapath}.
+
+
+\bibitem[{EMVCo}(2014)]%
+        {emvco2014}
+\bibfield{author}{\bibinfo{person}{{EMVCo}}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{{EMV} Contactless Specifications for Payment
+  Systems -- Book C-2: Kernel 2 Specification}.
+\newblock \bibinfo{journal}{\emph{EMVCo Specification}} (\bibinfo{year}{2014}).
+\newblock
+\newblock
+\shownote{Version 2.5}.
+
+
+\bibitem[Feldhofer et~al\mbox{.}(2004)]%
+        {feldhofer2004rfid}
+\bibfield{author}{\bibinfo{person}{Martin Feldhofer}, \bibinfo{person}{Sandra
+  Dominikus}, {and} \bibinfo{person}{Johannes Wolkerstorfer}.}
+  \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Strong Authentication for {RFID} Systems Using the
+  {AES} Algorithm}.
+\newblock \bibinfo{journal}{\emph{Lecture Notes in Computer Science}}
+  \bibinfo{volume}{3156} (\bibinfo{year}{2004}), \bibinfo{pages}{357--370}.
+\newblock
+\href{https://doi.org/10.1007/978-3-540-28632-5_26}{doi:\nolinkurl{10.1007/978-3-540-28632-5_26}}
+\newblock
+\shownote{Cryptographic Hardware and Embedded Systems -- CHES 2004}.
+
+
+\bibitem[{Google LLC}(2024)]%
+        {android_hce}
+\bibfield{author}{\bibinfo{person}{{Google LLC}}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \bibinfo{title}{Host-based Card Emulation Overview}.
+\newblock \bibinfo{howpublished}{Android Developers Documentation}.
+\newblock
+\newblock
+\shownote{\url{https://developer.android.com/develop/connectivity/nfc/hce}}.
+
+
+\bibitem[Hancke and Kuhn(2005)]%
+        {hancke2005relay}
+\bibfield{author}{\bibinfo{person}{Gerhard~P. Hancke} {and}
+  \bibinfo{person}{Markus~G. Kuhn}.} \bibinfo{year}{2005}\natexlab{}.
+\newblock \showarticletitle{An {RFID} Distance Bounding Protocol}. In
+  \bibinfo{booktitle}{\emph{First International Conference on Security and
+  Privacy for Emerging Areas in Communications Networks (SecureComm)}}.
+  \bibinfo{publisher}{IEEE}, \bibinfo{pages}{67--73}.
+\newblock
+\href{https://doi.org/10.1109/SECURECOMM.2005.56}{doi:\nolinkurl{10.1109/SECURECOMM.2005.56}}
+
+
+\bibitem[{IHP -- Leibniz-Institut für innovative Mikroelektronik}(2023)]%
+        {ihpsg13g2}
+\bibfield{author}{\bibinfo{person}{{IHP -- Leibniz-Institut für innovative
+  Mikroelektronik}}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{title}{{IHP} Open Source {PDK}: {SG13G2} 130~nm {BiCMOS}
+  Technology}.
+\newblock \bibinfo{howpublished}{Open-Source Repository}.
+\newblock
+\newblock
+\shownote{GitHub: \url{https://github.com/IHP-GmbH/IHP-Open-PDK}}.
+
+
+\bibitem[{IHP -- Leibniz-Institut für innovative Mikroelektronik}(2025)]%
+        {ihp_mpp}
+\bibfield{author}{\bibinfo{person}{{IHP -- Leibniz-Institut für innovative
+  Mikroelektronik}}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{{IHP Microelectronics}}.
+\newblock \bibinfo{howpublished}{\url{https://www.ihp-microelectronics.com/}}.
+\newblock
+
+
+\bibitem[{IHP-GmbH}(2024)]%
+        {librelane}
+\bibfield{author}{\bibinfo{person}{{IHP-GmbH}}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \bibinfo{title}{{LibreLane} Full-Chip Flow Template for {IHP}
+  {SG13G2} {OpenPDK}}.
+\newblock \bibinfo{howpublished}{GitHub:
+  \url{https://github.com/IHP-GmbH/ihp-sg13g2-librelane-template}}.
+\newblock
+\newblock
+\shownote{Apache-2.0 license}.
+
+
+\bibitem[{ISO/IEC}(2018a)]%
+        {iso14443-3}
+\bibfield{author}{\bibinfo{person}{{ISO/IEC}}.}
+  \bibinfo{year}{2018}\natexlab{a}.
+\newblock \bibinfo{booktitle}{\emph{{ISO/IEC 14443-3:2018 -- Identification
+  cards -- Contactless integrated circuit cards -- Proximity cards -- Part 3:
+  Initialization and anticollision}}}.
+\newblock \bibinfo{type}{International Standard} 14443-3.
+  \bibinfo{institution}{International Organization for Standardization}.
+\newblock
+
+
+\bibitem[{ISO/IEC}(2018b)]%
+        {iso14443-4}
+\bibfield{author}{\bibinfo{person}{{ISO/IEC}}.}
+  \bibinfo{year}{2018}\natexlab{b}.
+\newblock \bibinfo{booktitle}{\emph{{ISO/IEC 14443-4:2018 -- Identification
+  cards -- Contactless integrated circuit cards -- Proximity cards -- Part 4:
+  Transmission protocol}}}.
+\newblock \bibinfo{type}{International Standard} 14443-4.
+  \bibinfo{institution}{International Organization for Standardization}.
+\newblock
+
+
+\bibitem[{LAYR Team / OCDC}(2025)]%
+        {ocdc_layr}
+\bibfield{author}{\bibinfo{person}{{LAYR Team / OCDC}}.}
+  \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{{LAYR Open Chip Challenge 25/26}}.
+\newblock \bibinfo{howpublished}{GitHub:
+  \url{https://github.com/OCDCpro/LAYR}}.
+\newblock
+\newblock
+\shownote{Challenge description and hardware kit specification}.
+
+
+\bibitem[{Microchip Technology}(2013)]%
+        {at25010b}
+\bibfield{author}{\bibinfo{person}{{Microchip Technology}}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{AT25010B/020B/040B}: 1K/2K/4K {SPI} Bus
+  Serial {EEPROM}}}.
+\newblock Microchip Technology Inc.
+\newblock
+\newblock
+\shownote{\url{https://ww1.microchip.com/downloads/en/devicedoc/atmel-8707-seeprom-at25010b-020b-040b-datasheet.pdf}}.
+
+
+\bibitem[{National Institute of Standards and Technology}(2001)]%
+        {fips197}
+\bibfield{author}{\bibinfo{person}{{National Institute of Standards and
+  Technology}}.} \bibinfo{year}{2001}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{FIPS PUB 197: Advanced Encryption Standard
+  (AES)}}}.
+\newblock \bibinfo{type}{Federal Information Processing Standard} 197.
+  \bibinfo{institution}{National Institute of Standards and Technology},
+  \bibinfo{address}{Gaithersburg, MD, USA}.
+\newblock
+\newblock
+\shownote{\url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf}}.
+
+
+\bibitem[{NXP Semiconductors}(2016)]%
+        {mfrc522}
+\bibfield{author}{\bibinfo{person}{{NXP Semiconductors}}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{MFRC522}: Standard performance {MIFARE}
+  and {NTAG} Frontend} (\bibinfo{edition}{rev. 3.9} ed.)}.
+\newblock NXP Semiconductors.
+\newblock
+\newblock
+\shownote{\url{https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf}}.
+
+
+\bibitem[{OCDC}(2025)]%
+        {layr_javacard}
+\bibfield{author}{\bibinfo{person}{{OCDC}}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{{LAYR JavaCard Applet}}.
+\newblock \bibinfo{howpublished}{GitHub:
+  \url{https://github.com/OCDCpro/javacard-applet}}.
+\newblock
+\newblock
+\shownote{Reference implementation of the LAYR protocol on JavaCard}.
+
+
+\bibitem[Roland et~al\mbox{.}(2013)]%
+        {roland2012hce}
+\bibfield{author}{\bibinfo{person}{Michael Roland}, \bibinfo{person}{Josef
+  Langer}, {and} \bibinfo{person}{Josef Scharinger}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Applying Relay Attacks to {Google Wallet}}. In
+  \bibinfo{booktitle}{\emph{5th International Workshop on Near Field
+  Communication (NFC)}}. \bibinfo{publisher}{IEEE}.
+\newblock
+\href{https://doi.org/10.1109/NFC.2013.6482441}{doi:\nolinkurl{10.1109/NFC.2013.6482441}}
+
+
+\bibitem[Satoh et~al\mbox{.}(2001)]%
+        {satoh2001}
+\bibfield{author}{\bibinfo{person}{Akashi Satoh}, \bibinfo{person}{Sumio
+  Morioka}, \bibinfo{person}{Kohji Takano}, {and} \bibinfo{person}{Seiji
+  Munetoh}.} \bibinfo{year}{2001}\natexlab{}.
+\newblock \showarticletitle{A Compact Rijndael Hardware Architecture with
+  {S-Box} Optimization}. In \bibinfo{booktitle}{\emph{Advances in Cryptology --
+  ASIACRYPT 2001}} \emph{(\bibinfo{series}{Lecture Notes in Computer Science},
+  Vol.~\bibinfo{volume}{2248})}. \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{239--254}.
+\newblock
+\href{https://doi.org/10.1007/3-540-45682-1_15}{doi:\nolinkurl{10.1007/3-540-45682-1_15}}
+
+
+\bibitem[{Seeed Studio}(2024)]%
+        {seeed_pn532}
+\bibfield{author}{\bibinfo{person}{{Seeed Studio}}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \bibinfo{title}{{PN532 NFC Library for Arduino}}.
+\newblock \bibinfo{howpublished}{GitHub:
+  \url{https://github.com/Seeed-Studio/PN532}}.
+\newblock
+\newblock
+\shownote{Arduino library for the NXP PN532 NFC controller}.
+
+
+\bibitem[Shalan and Edwards(2020)]%
+        {shalan2020openlane}
+\bibfield{author}{\bibinfo{person}{Mohamed Shalan} {and} \bibinfo{person}{Tim
+  Edwards}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Building Open Source {EDA}: Infrastructure for {IC}
+  Design}. In \bibinfo{booktitle}{\emph{2020 57th ACM/IEEE Design Automation
+  Conference (DAC)}}. \bibinfo{publisher}{IEEE}, \bibinfo{pages}{1--4}.
+\newblock
+\href{https://doi.org/10.1109/DAC18072.2020.9218632}{doi:\nolinkurl{10.1109/DAC18072.2020.9218632}}
+
+
+\end{thebibliography}

@@ -1,0 +1,76 @@
+@startuml system_arch
+!theme plain
+skinparam componentStyle rectangle
+skinparam defaultFontSize 10
+skinparam padding 4
+skinparam component {
+  BackgroundColor White
+  BorderColor Black
+}
+skinparam package {
+  BorderColor DarkGray
+  FontStyle bold
+}
+
+title Guardian Chip – System Architecture
+
+' ---- ASIC boundary (flat, not nested) ----
+package "GuardianChip ASIC  (QFN-24, IHP SG13G2 130 nm)" as CHIP {
+
+  component [spi_master\n──────\n32 MHz sys-clk\n4 MHz SPI, Mode 0\nshared bus] as SPI
+
+  component [mfrc522_apdu_interface\n──────\nISO 14443-A detection\n(REQA / ANTICOLL / SELECT)\nISO 14443-4 bring-up (RATS)\nAPDU byte-stream I/O\nWTX handling] as NFC_IF
+
+  component [layr_core\n──────\nSELECT AID\nAUTH_INIT / AUTH\nGET_ID / GET_NEW_KEY\nWhitelist check\nCounter persistence] as LAYR
+
+  component [aes_core\n──────\naes_iterative.v\n1 round / clock cycle\nCoruus composite-field\nS-box (Canright math)\nAES-128 ECB enc/dec] as AES
+
+  component [at25010_interface\n──────\nSPI AT25010B driver\nStartup: read 120 B\nPage-write (8 B/page)\nWREN + WEL check\nWIP polling] as EEPROM_IF
+
+}
+
+' ---- External ----
+cloud "External Hardware" {
+  [MFRC522\nNFC Reader] as MFRC
+  [AT25010B\n128×8 EEPROM] as EEPROM_HW
+  [JavaCard /\nAndroid HCE] as CARD
+  [Door Lock\n12 V relay] as DOOR
+  [LEDs\nbusy/fault/unlock] as LEDS
+}
+
+' ---- Hierarchy note ----
+note top of CHIP
+  Pad ring: chip_top.sv  (sg13g2 IO pads)
+  Routing:  chip_core.sv
+  Logic:    main_core.v
+end note
+
+' ---- SPI bus ----
+SPI -right-> MFRC      : sclk / mosi / miso\n(cs_0)
+SPI -right-> EEPROM_HW : sclk / mosi / miso\n(cs_1)
+
+' ---- SPI handshake (internal) ----
+NFC_IF   -up->  SPI : start_xfer\ntx_byte
+SPI      -down-> NFC_IF : xfer_done / rx_byte
+
+EEPROM_IF -up-> SPI : start_xfer\ntx_byte
+SPI       -down-> EEPROM_IF : xfer_done / rx_byte
+
+' ---- NFC <-> LAYR ----
+NFC_IF <--> LAYR : link_ready\napp_tx / app_rx\nrestart_link
+
+' ---- EEPROM <-> LAYR ----
+EEPROM_IF -right-> LAYR : key[127:0]\ncounter[63:0]\nids[767:0]
+LAYR -left-> EEPROM_IF  : key_write_req\ncounter_write_req
+
+' ---- AES ----
+LAYR <--> AES : start / mode / key\nblock_in → block_out / done
+
+' ---- RF ----
+CARD <..> MFRC : 13.56 MHz RF
+
+' ---- Outputs ----
+LAYR --> DOOR  : status_unlock
+LAYR --> LEDS  : status_busy\nstatus_fault\nstatus_unlock
+
+@enduml

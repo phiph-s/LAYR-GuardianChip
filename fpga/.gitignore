@@ -1,0 +1,21 @@
+# Yosys outputs
+*.json
+abc.history
+
+# nextpnr outputs
+*.config
+
+# ecppack outputs
+*.bit
+
+# Log files
+*.log
+
+# Editor backup files
+*~
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

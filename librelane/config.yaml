@@ -1,0 +1,157 @@
+meta:
+  version: 3
+  flow: Chip
+  substituting_steps:
+
+    # Magic reports some overlaps which can be ignored
+    Checker.IllegalOverlap: null
+
+    # Disable KLayout DRC
+    #KLayout.DRC: null
+    #Checker.KLayoutDRC: null
+
+    # Disable magic DRC
+    # Magic uses MFil.a1 >= 1um threshold vs KLayout's >= 0.42um (PDK spec).
+    # gdsfill Track/Square shapes (~0.42-0.5um) cause ~3M false positives in Magic.
+    # KLayout DRC is the authoritative check for IHP SG13G2.
+    Magic.DRC: null
+    Checker.MagicDRC: null
+
+    # Disable KLayout antenna check
+    #KLayout.Antenna: null
+    #Checker.KLayoutAntenna: null
+
+    # Disable KLayout density check
+    #KLayout.Density: null
+    #Checker.KLayoutDensity: null
+    
+    # Save time
+    #OpenROAD.IRDropReport: null
+    #KLayout.XOR: null
+    #Netgen.LVS: null
+    #Checker.LVS: null
+
+DESIGN_NAME: hsrmteam1
+VERILOG_FILES:
+- dir::../src/hsrm_team1.sv
+- dir::../src/chip_core.sv
+- dir::../src/user_rtl/rtl/main_core.v
+- dir::../src/user_rtl/rtl/layr_core.v
+- dir::../src/user_rtl/rtl/mfrc522_apdu_interface.v
+- dir::../src/user_rtl/rtl/at25010_interface.v
+- dir::../src/user_rtl/rtl/spi_master.v
+- dir::../src/user_rtl/rtl/aes_core.v
+- dir::../src/user_rtl/rtl/aes_small/aes_iterative.v
+- dir::../src/user_rtl/ip/canright-aes-sboxes/verilog/sbox.verilog
+
+VERILOG_DEFINES: [FUNCTIONAL]
+
+# Enable plugin for better SystemVerilog support
+# USE_SLANG: True
+# SLANG_ARGUMENTS: ['--keep-hierarchy']
+
+# Slightly smaller file sizes
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+
+# Specify the pad instances for the padring
+PAD_SOUTH: [
+    rst_n_pad,                        # Pin1:  rst      (active-low reset)
+    clk_pad,                          # Pin2:  sys_clk
+    "inputs\\[0\\].input_pad",        # Pin3:  uart_clk
+    "outputs\\[0\\].output_pad",      # Pin4:  user_io_0
+    "inputs\\[1\\].input_pad",        # Pin5:  uart_rx
+    "outputs\\[1\\].output_pad"       # Pin6:  uart_tx
+]
+
+PAD_EAST: [
+    "outputs\\[2\\].output_pad",      # Pin7:  user_io_1
+    "outputs\\[3\\].output_pad",      # Pin8:  user_io_2
+    "outputs\\[4\\].output_pad",      # Pin9:  user_io_3
+    "outputs\\[5\\].output_pad",      # Pin10: user_io_4
+    "vdd_pads\\[0\\].vdd_pad",        # Pin11: Vdd
+    "vss_pads\\[0\\].vss_pad"         # Pin12: Vss
+]
+
+PAD_NORTH: [
+    "outputs\\[6\\].output_pad",      # Pin13: cs_1
+    "outputs\\[7\\].output_pad",      # Pin14: cs_2
+    "inputs\\[2\\].input_pad",        # Pin15: spi_miso
+    "outputs\\[8\\].output_pad",      # Pin16: spi_mosi
+    "outputs\\[9\\].output_pad",      # Pin17: spi_sclk
+    "vss_pads\\[1\\].vss_pad"         # Pin18: Vss
+]
+
+PAD_WEST: [
+    "vdd_pads\\[1\\].vdd_pad",        # Pin19: Vdd
+    "outputs\\[10\\].output_pad",     # Pin20: status_unlock
+    "outputs\\[11\\].output_pad",     # Pin21: status_fault
+    "outputs\\[12\\].output_pad",     # Pin22: status_busy
+    "iovss_pads\\[0\\].iovss_pad",    # Pin23: IO_Vss
+    "iovdd_pads\\[0\\].iovdd_pad"     # Pin24: IO_Vdd
+]
+
+# SDC files
+PNR_SDC_FILE: dir::../src/hsrm_team1.sdc
+SIGNOFF_SDC_FILE: dir::../src/hsrm_team1.sdc
+FALLBACK_SDC: dir::../src/hsrm_team1.sdc
+
+# Power / ground nets
+VDD_NETS:
+- VDD
+GND_NETS:
+- VSS
+
+# Clock
+CLOCK_PORT: clk_PAD
+CLOCK_NET: clk_pad/p2c
+
+CLOCK_PERIOD: 20
+
+# Floorplanning
+FP_SIZING: absolute
+# 3880umx5070um including 26um
+# for the sealring on all sides
+DIE_AREA: [0, 0, 2699, 2699]
+CORE_AREA: [378, 378, 2321, 2321]
+
+#DIE_AREA: [0, 0, 1120, 1120]
+#CORE_AREA: [378.00, 378.00, 742, 742] 
+# Increase for more logic
+# on your die
+PL_TARGET_DENSITY_PCT: 10
+GRT_ALLOW_CONGESTION: true
+GRT_ANTENNA_REPAIR_ITERS: 4
+DRT_ANTENNA_REPAIR_ITERS: 4
+
+# PDN
+PDN_CORE_RING: True
+
+# Override bondpad name
+PAD_BONDPAD_NAME: bondpad_70x70_novias
+
+# Bondpad is not yet included in the PDK
+EXTRA_GDS:
+- dir::../ip/bondpad_70x70/gds/bondpad_70x70.gds
+- dir::../ip/bondpad_70x70_novias/gds/bondpad_70x70_novias.gds
+
+EXTRA_LEFS:
+- dir::../ip/bondpad_70x70/lef/bondpad_70x70.lef
+- dir::../ip/bondpad_70x70_novias/lef/bondpad_70x70_novias.lef
+
+IGNORE_DISCONNECTED_MODULES:
+- bondpad_70x70
+- bondpad_70x70_novias
+
+# Maximum metal width without slotting: 30um
+PDN_CORE_RING_VWIDTH: 15
+PDN_CORE_RING_HWIDTH: 15
+# Ensure minimum spacing for long metals
+PDN_CORE_RING_VSPACING: 5
+PDN_CORE_RING_HSPACING: 5
+
+PDN_CORE_RING_CONNECT_TO_PADS: True
+PDN_ENABLE_PINS: False
+
+# Because we have multiple power pads for one power domain
+MAGIC_EXT_UNIQUE: notopports
+

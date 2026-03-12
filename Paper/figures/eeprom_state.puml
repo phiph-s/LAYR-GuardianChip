@@ -1,0 +1,89 @@
+@startuml eeprom_state
+title Guardian Chip – EEPROM Interface State Machine (at25010_interface.v)
+
+skinparam state {
+  BackgroundColor<<read>>  LightBlue
+  BackgroundColor<<write>> LightYellow
+  BackgroundColor<<poll>>  LightGreen
+  BorderColor black
+}
+
+[*] --> IDLE : rst (pending_read=1)
+
+state IDLE {
+  IDLE : busy=0\nCheck pending flags:\npending_write > pending_ctr_write\n> pending_ids_write > pending_read
+}
+
+IDLE --> WREN_CSS      : any write pending
+IDLE --> READ_CSS      : pending_read
+
+state "READ Path" as READ_GRP <<read>> {
+  [*] --> READ_CSS
+  READ_CSS  : CS low, wait CS gap (~1 µs)
+  READ_CSS  --> READ_CMD
+  READ_CMD  : SPI: send READ cmd (0x03)
+  READ_CMD  --> READ_ADDR
+  READ_ADDR : SPI: send address 0x00
+  READ_ADDR --> READ_DATA
+  READ_DATA : Clock out 120 bytes:\nbytes 0-15  → key[127:0]\nbytes 16-23 → counter[63:0]\nbytes 24-119 → ids[767:0]
+  READ_DATA --> READ_DESEL
+  READ_DESEL : CS high
+  READ_DESEL --> READ_DONE
+  READ_DONE  : key_valid=1, counter_valid=1\nids_valid=1, busy=0
+}
+
+READ_GRP --> IDLE : done
+
+state "WRITE Path (key / counter / IDs)" as WRITE_GRP <<write>> {
+  [*] --> WREN_CSS
+  WREN_CSS    : CS low, gap
+  WREN_CSS    --> WREN
+  WREN        : SPI: send WREN (0x06)
+  WREN        --> WREN_DESEL
+  WREN_DESEL  : CS high, gap
+
+  WREN_DESEL  --> WREN_CHK_CSS
+  WREN_CHK_CSS : CS low, gap
+  WREN_CHK_CSS --> WREN_CHK_CMD
+  WREN_CHK_CMD : SPI: send RDSR (0x05)
+  WREN_CHK_CMD --> WREN_CHK_DATA
+  WREN_CHK_DATA : Read status register
+  WREN_CHK_DATA --> WREN_FAIL  : WEL=0 (WREN rejected)
+  WREN_CHK_DATA --> WREN_GAP   : WEL=1 ✓
+
+  WREN_GAP  : CS gap
+  WREN_GAP  --> WRITE_CMD
+  WRITE_CMD : SPI: send WRITE (0x02)
+  WRITE_CMD --> WRITE_ADDR
+  WRITE_ADDR : SPI: send page address
+  WRITE_ADDR --> WRITE_DATA
+  WRITE_DATA : SPI: send 8 data bytes\n(one 8-byte EEPROM page)
+  WRITE_DATA --> WRITE_DESEL
+  WRITE_DESEL : CS high → internal write cycle
+}
+
+state "WIP Poll" as POLL_GRP <<poll>> {
+  [*] --> POLL_DELAY
+  POLL_DELAY : Wait ~1 ms (EEPROM write time)
+  POLL_DELAY --> POLL_CMD
+  POLL_CMD : SPI: send RDSR (0x05)
+  POLL_CMD --> POLL_DATA
+  POLL_DATA : Read status: check WIP bit
+  POLL_DATA --> POLL_DELAY    : WIP=1 (still writing)
+  POLL_DATA --> PAGE1_START   : WIP=0, more pages pending
+  POLL_DATA --> WRITE_DONE    : WIP=0, last page done
+}
+
+WRITE_GRP --> POLL_GRP : page written
+
+PAGE1_START : Update write_addr, write_shift\nfor next 8-byte page
+PAGE1_START --> WREN_CSS
+
+state WRITE_DONE <<poll>> {
+  WRITE_DONE : Update output registers:\nkey/counter/ids + valid flag\nbusy=0
+}
+
+WRITE_DONE --> IDLE
+WREN_FAIL --> IDLE : wren_fail=1\nbest-effort: signal done anyway
+
+@enduml

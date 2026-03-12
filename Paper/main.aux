@@ -1,0 +1,239 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{ocdc_layr}
+\citation{ihpsg13g2}
+\citation{librelane}
+\citation{mfrc522}
+\citation{at25010b}
+\citation{canright2005,canright_github}
+\citation{canright2005}
+\citation{canright_github}
+\citation{hancke2005relay}
+\citation{ocdc_layr}
+\citation{iso14443-3,iso14443-4}
+\@writefile{toc}{\contentsline {section}{Abstract}{1}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\newlabel{sec:intro@cref}{{[section][1][]1}{[1][1][]1}{}{}{}}
+\citation{satoh2001}
+\citation{canright2005}
+\citation{canright_github}
+\citation{feldhofer2004rfid}
+\citation{hancke2005relay}
+\citation{dolev1983protocol}
+\citation{emvco2014}
+\citation{ocdc_layr}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.2}{}}
+\newlabel{sec:related@cref}{{[section][2][]2}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Compact hardware AES.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{NFC and RFID security.}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Challenge-response authentication.}{2}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}System Architecture}{2}{section.3}\protected@file@percent }
+\newlabel{sec:arch}{{3}{2}{System Architecture}{section.3}{}}
+\newlabel{sec:arch@cref}{{[section][3][]3}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Overview}{2}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:arch:overview}{{3.1}{2}{Overview}{subsection.3.1}{}}
+\newlabel{sec:arch:overview@cref}{{[subsection][1][3]3.1}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Pin Interface and Packaging}{2}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:arch:pins}{{3.2}{2}{Pin Interface and Packaging}{subsection.3.2}{}}
+\newlabel{sec:arch:pins@cref}{{[subsection][2][3]3.2}{[1][2][]2}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces System architecture of the Guardian Chip. Arrows denote the direction of primary data flow. The SPI bus (sclk, mosi, miso) is shared; CS lines select the active peripheral.}}{3}{figure.caption.5}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:arch}{{1}{3}{System architecture of the Guardian Chip. Arrows denote the direction of primary data flow. The SPI bus (sclk, mosi, miso) is shared; CS lines select the active peripheral}{figure.caption.5}{}}
+\newlabel{fig:arch@cref}{{[figure][1][]1}{[1][2][]3}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Module Hierarchy}{3}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:arch:hier}{{3.3}{3}{Module Hierarchy}{subsection.3.3}{}}
+\newlabel{sec:arch:hier@cref}{{[subsection][3][3]3.3}{[1][2][]3}{}{}{}}
+\citation{layr_javacard}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Externally used signal pins (QFN-24).}}{4}{table.caption.6}\protected@file@percent }
+\newlabel{tab:pins}{{1}{4}{Externally used signal pins (QFN-24)}{table.caption.6}{}}
+\newlabel{tab:pins@cref}{{[table][1][]1}{[1][2][]4}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Security Analysis and Protocol Design}{4}{section.4}\protected@file@percent }
+\newlabel{sec:security}{{4}{4}{Security Analysis and Protocol Design}{section.4}{}}
+\newlabel{sec:security@cref}{{[section][4][]4}{[1][4][]4}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Threat Model}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:security:threat}{{4.1}{4}{Threat Model}{subsection.4.1}{}}
+\newlabel{sec:security:threat@cref}{{[subsection][1][4]4.1}{[1][4][]4}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}LAYR Level\nonbreakingspace 1 Protocol}{4}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:security:protocol}{{4.2}{4}{LAYR Level~1 Protocol}{subsection.4.2}{}}
+\newlabel{sec:security:protocol@cref}{{[subsection][2][4]4.2}{[1][4][]4}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Protocol flow.}{4}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Security properties.}{5}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Resistance to replay.}{5}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Key Rollover}{5}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:security:rollover}{{4.3}{5}{Key Rollover}{subsection.4.3}{}}
+\newlabel{sec:security:rollover@cref}{{[subsection][3][4]4.3}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}RTL Implementation}{5}{section.5}\protected@file@percent }
+\newlabel{sec:impl}{{5}{5}{RTL Implementation}{section.5}{}}
+\newlabel{sec:impl@cref}{{[section][5][]5}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Shared SPI Master (\texttt  {spi\_master.v})}{5}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:impl:spi}{{5.1}{5}{Shared SPI Master (\texttt {spi\_master.v})}{subsection.5.1}{}}
+\newlabel{sec:impl:spi@cref}{{[subsection][1][5]5.1}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}NFC Front-End Interface (\texttt  {mfrc522\_apdu\_interface.v})}{5}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:impl:nfc}{{5.2}{5}{NFC Front-End Interface (\texttt {mfrc522\_apdu\_interface.v})}{subsection.5.2}{}}
+\newlabel{sec:impl:nfc@cref}{{[subsection][2][5]5.2}{[1][5][]5}{}{}{}}
+\citation{canright2005}
+\citation{canright_github}
+\citation{ehab_aes_verilog}
+\@writefile{toc}{\contentsline {paragraph}{Phase\nonbreakingspace 1 – ISO\nonbreakingspace 14443-A card detection.}{6}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Phase\nonbreakingspace 2 – ISO\nonbreakingspace 14443-4 link bring-up.}{6}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{APDU exchange.}{6}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}AES Engine (\texttt  {aes\_core.v} / \texttt  {aes\_iterative.v})}{6}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:impl:aes}{{5.3}{6}{AES Engine (\texttt {aes\_core.v} / \texttt {aes\_iterative.v})}{subsection.5.3}{}}
+\newlabel{sec:impl:aes@cref}{{[subsection][3][5]5.3}{[1][6][]6}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{S-box implementation.}{6}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Timing.}{6}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Design history.}{6}{section*.15}\protected@file@percent }
+\citation{at25010b}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}EEPROM Interface (\texttt  {at25010\_interface.v})}{7}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:impl:eeprom}{{5.4}{7}{EEPROM Interface (\texttt {at25010\_interface.v})}{subsection.5.4}{}}
+\newlabel{sec:impl:eeprom@cref}{{[subsection][4][5]5.4}{[1][7][]7}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces EEPROM memory layout (AT25010B, 128 bytes total).}}{7}{table.caption.16}\protected@file@percent }
+\newlabel{tab:eeprom}{{2}{7}{EEPROM memory layout (AT25010B, 128 bytes total)}{table.caption.16}{}}
+\newlabel{tab:eeprom@cref}{{[table][2][]2}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}LAYR Authentication Core (\texttt  {layr\_core.v})}{7}{subsection.5.5}\protected@file@percent }
+\newlabel{sec:impl:layr}{{5.5}{7}{LAYR Authentication Core (\texttt {layr\_core.v})}{subsection.5.5}{}}
+\newlabel{sec:impl:layr@cref}{{[subsection][5][5]5.5}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Status outputs.}{7}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Counter persistence.}{7}{section*.20}\protected@file@percent }
+\citation{roland2012hce}
+\@writefile{toc}{\contentsline {paragraph}{ID whitelist.}{8}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Link recovery.}{8}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Android Simulator Application}{8}{section.6}\protected@file@percent }
+\newlabel{sec:simulator}{{6}{8}{Android Simulator Application}{section.6}{}}
+\newlabel{sec:simulator@cref}{{[section][6][]6}{[1][8][]8}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces APDU commands implemented by the Android simulator (class \texttt  {CardService}).}}{8}{table.caption.23}\protected@file@percent }
+\newlabel{tab:apdu_impl}{{3}{8}{APDU commands implemented by the Android simulator (class \texttt {CardService})}{table.caption.23}{}}
+\newlabel{tab:apdu_impl@cref}{{[table][3][]3}{[1][8][]8}{}{}{}}
+\citation{android_hce}
+\citation{ihpsg13g2}
+\citation{librelane,shalan2020openlane}
+\citation{ocdc_layr}
+\citation{ihp_mpp}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Android LAYR Simulator application showing the three fragments: Key (authentication status and active PSK), Rollover (key distribution) and Key Management (PSK update).}}{9}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:app}{{4}{9}{Android LAYR Simulator application showing the three fragments: Key (authentication status and active PSK), Rollover (key distribution) and Key Management (PSK update)}{figure.caption.24}{}}
+\newlabel{fig:app@cref}{{[figure][4][]4}{[1][8][]9}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Simulator limitation: screen-lock dependency.}{9}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Physical Design}{9}{section.7}\protected@file@percent }
+\newlabel{sec:physical}{{7}{9}{Physical Design}{section.7}{}}
+\newlabel{sec:physical@cref}{{[section][7][]7}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Technology}{9}{subsection.7.1}\protected@file@percent }
+\newlabel{sec:physical:tech}{{7.1}{9}{Technology}{subsection.7.1}{}}
+\newlabel{sec:physical:tech@cref}{{[subsection][1][7]7.1}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Pad Ring}{9}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:physical:pads}{{7.2}{9}{Pad Ring}{subsection.7.2}{}}
+\newlabel{sec:physical:pads@cref}{{[subsection][2][7]7.2}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Test Setup}{10}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:physical:testsetup}{{7.3}{10}{Test Setup}{subsection.7.3}{}}
+\newlabel{sec:physical:testsetup@cref}{{[subsection][3][7]7.3}{[1][9][]10}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 3D-printed demonstration enclosure housing the ULX3S FPGA development board, MFRC522 NFC reader, AT25010B EEPROM, relay, and status LEDs. CAD files (FreeCAD + STL) are located in \texttt  {CAD/}.}}{10}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:testkit}{{5}{10}{3D-printed demonstration enclosure housing the ULX3S FPGA development board, MFRC522 NFC reader, AT25010B EEPROM, relay, and status LEDs. CAD files (FreeCAD + STL) are located in \texttt {CAD/}}{figure.caption.26}{}}
+\newlabel{fig:testkit@cref}{{[figure][5][]5}{[1][9][]10}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Development Process}{10}{section.8}\protected@file@percent }
+\newlabel{sec:process}{{8}{10}{Development Process}{section.8}{}}
+\newlabel{sec:process@cref}{{[section][8][]8}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Phase 0: Simulation-First Approach and Its Limits}{10}{subsection.8.1}\protected@file@percent }
+\newlabel{sec:process:phase0}{{8.1}{10}{Phase 0: Simulation-First Approach and Its Limits}{subsection.8.1}{}}
+\newlabel{sec:process:phase0@cref}{{[subsection][1][8]8.1}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Phase 1: Infrastructure and Basic SPI Communication}{11}{subsection.8.2}\protected@file@percent }
+\newlabel{sec:process:phase1}{{8.2}{11}{Phase 1: Infrastructure and Basic SPI Communication}{subsection.8.2}{}}
+\newlabel{sec:process:phase1@cref}{{[subsection][2][8]8.2}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{First milestone: LAYR Level\nonbreakingspace 0.}{11}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Debugging without instruments.}{11}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Phase 2: The APDU Dead-End and the Bootstrapping Problem}{11}{subsection.8.3}\protected@file@percent }
+\newlabel{sec:process:phase2}{{8.3}{11}{Phase 2: The APDU Dead-End and the Bootstrapping Problem}{subsection.8.3}{}}
+\newlabel{sec:process:phase2@cref}{{[subsection][3][8]8.3}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{The bootstrapping problem.}{11}{section*.29}\protected@file@percent }
+\citation{seeed_pn532}
+\@writefile{toc}{\contentsline {paragraph}{Attempted detour: Verilog PN532 interface.}{12}{section*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Resolution: PN532 as reference reader.}{12}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Lesson learned.}{12}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Phase 3: LAYR Protocol and System Integration}{12}{subsection.8.4}\protected@file@percent }
+\newlabel{sec:process:phase3}{{8.4}{12}{Phase 3: LAYR Protocol and System Integration}{subsection.8.4}{}}
+\newlabel{sec:process:phase3@cref}{{[subsection][4][8]8.4}{[1][12][]12}{}{}{}}
+\citation{ihpsg13g2}
+\citation{librelane}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Phase 3b: JavaCard Compatibility and EEPROM Initialisation}{13}{subsection.8.5}\protected@file@percent }
+\newlabel{sec:process:phase3b}{{8.5}{13}{Phase 3b: JavaCard Compatibility and EEPROM Initialisation}{subsection.8.5}{}}
+\newlabel{sec:process:phase3b@cref}{{[subsection][5][8]8.5}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{EEPROM initialisation.}{13}{section*.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Phase 4: Tape-Out Preparation}{13}{subsection.8.6}\protected@file@percent }
+\newlabel{sec:process:phase4}{{8.6}{13}{Phase 4: Tape-Out Preparation}{subsection.8.6}{}}
+\newlabel{sec:process:phase4@cref}{{[subsection][6][8]8.6}{[1][13][]13}{}{}{}}
+\newlabel{sec:process:phase4:fill}{{8.6.1}{13}{Metal Density Fill}{subsubsection.8.6.1}{}}
+\newlabel{sec:process:phase4:fill@cref}{{[subsubsection][1][8,6]8.6.1}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.6.1}Metal Density Fill}{13}{subsubsection.8.6.1}\protected@file@percent }
+\citation{gdsfill}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Final GDS of the Guardian Chip as viewed in KLayout after completion of the full LibreLane flow including metal density fill. The pad ring with 24 I/O pads is visible around the perimeter; the core logic occupies the central area.}}{14}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:klayout_final_gds}{{6}{14}{Final GDS of the Guardian Chip as viewed in KLayout after completion of the full LibreLane flow including metal density fill. The pad ring with 24 I/O pads is visible around the perimeter; the core logic occupies the central area}{figure.caption.34}{}}
+\newlabel{fig:klayout_final_gds@cref}{{[figure][6][]6}{[1][14][]14}{}{}{}}
+\newlabel{sec:process:phase4:antenna}{{8.6.2}{14}{Floating Nets and Antenna Violations}{subsubsection.8.6.2}{}}
+\newlabel{sec:process:phase4:antenna@cref}{{[subsubsection][2][8,6]8.6.2}{[1][14][]14}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.6.2}Floating Nets and Antenna Violations}{14}{subsubsection.8.6.2}\protected@file@percent }
+\citation{fips197}
+\citation{hancke2005relay}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Verification}{15}{section.9}\protected@file@percent }
+\newlabel{sec:verification}{{9}{15}{Verification}{section.9}{}}
+\newlabel{sec:verification@cref}{{[section][9][]9}{[1][15][]15}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{RTL simulation.}{15}{section*.35}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Hardware validation.}{15}{section*.36}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Discussion}{15}{section.10}\protected@file@percent }
+\newlabel{sec:discussion}{{10}{15}{Discussion}{section.10}{}}
+\newlabel{sec:discussion@cref}{{[section][10][]10}{[1][15][]15}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Security level.}{15}{section*.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Relay attacks.}{15}{section*.38}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Area and performance.}{15}{section*.39}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Post-layout implementation summary (IHP SG13G2, LibreLane flow).}}{16}{table.caption.40}\protected@file@percent }
+\newlabel{tab:area}{{4}{16}{Post-layout implementation summary (IHP SG13G2, LibreLane flow)}{table.caption.40}{}}
+\newlabel{tab:area@cref}{{[table][4][]4}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Nonce counter overflow.}{16}{section*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Conclusion}{16}{section.11}\protected@file@percent }
+\newlabel{sec:conclusion}{{11}{16}{Conclusion}{section.11}{}}
+\newlabel{sec:conclusion@cref}{{[section][11][]11}{[1][16][]16}{}{}{}}
+\bibstyle{ACM-Reference-Format}
+\bibdata{references}
+\bibcite{gdsfill}{{1}{2026}{{aesc-silicon}}{{}}}
+\bibcite{canright2005}{{2}{2005}{{Canright}}{{}}}
+\bibcite{canright_github}{{3}{2015}{{coorus}}{{}}}
+\bibcite{dolev1983protocol}{{4}{1983}{{Dolev and Yao}}{{}}}
+\bibcite{ehab_aes_verilog}{{5}{2022}{{Ehab}}{{}}}
+\bibcite{emvco2014}{{6}{2014}{{EMVCo}}{{}}}
+\bibcite{feldhofer2004rfid}{{7}{2004}{{Feldhofer et~al\mbox  {.}}}{{}}}
+\bibcite{android_hce}{{8}{2024}{{Google LLC}}{{}}}
+\bibcite{hancke2005relay}{{9}{2005}{{Hancke and Kuhn}}{{}}}
+\bibcite{ihpsg13g2}{{10}{2023}{{IHP -- Leibniz-Institut für innovative Mikroelektronik}}{{}}}
+\bibcite{ihp_mpp}{{11}{2025}{{IHP -- Leibniz-Institut für innovative Mikroelektronik}}{{}}}
+\bibcite{librelane}{{12}{2024}{{IHP-GmbH}}{{}}}
+\bibcite{iso14443-3}{{13}{2018a}{{ISO/IEC}}{{}}}
+\bibcite{iso14443-4}{{14}{2018b}{{ISO/IEC}}{{}}}
+\bibcite{ocdc_layr}{{15}{2025}{{LAYR Team / OCDC}}{{}}}
+\bibcite{at25010b}{{16}{2013}{{Microchip Technology}}{{}}}
+\bibcite{fips197}{{17}{2001}{{National Institute of Standards and Technology}}{{}}}
+\bibcite{mfrc522}{{18}{2016}{{NXP Semiconductors}}{{}}}
+\bibcite{layr_javacard}{{19}{2025}{{OCDC}}{{}}}
+\bibcite{roland2012hce}{{20}{2013}{{Roland et~al\mbox  {.}}}{{}}}
+\bibcite{satoh2001}{{21}{2001}{{Satoh et~al\mbox  {.}}}{{}}}
+\bibcite{seeed_pn532}{{22}{2024}{{Seeed Studio}}{{}}}
+\bibcite{shalan2020openlane}{{23}{2020}{{Shalan and Edwards}}{{}}}
+\@writefile{toc}{\contentsline {section}{References}{17}{section*.46}\protected@file@percent }
+\newlabel{tocindent-1}{0pt}
+\newlabel{tocindent0}{0pt}
+\newlabel{tocindent1}{8.37pt}
+\newlabel{tocindent2}{10.34999pt}
+\newlabel{tocindent3}{18.198pt}
+\newlabel{tocindent4}{0pt}
+\newlabel{tocindent5}{0pt}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces State machine of the EEPROM interface (\texttt  {at25010\_interface.v}). A startup read is triggered automatically on reset. Write paths share the WREN/WEL verification and WIP polling logic.}}{19}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:eeprom_state}{{2}{19}{State machine of the EEPROM interface (\texttt {at25010\_interface.v}). A startup read is triggered automatically on reset. Write paths share the WREN/WEL verification and WIP polling logic}{figure.caption.17}{}}
+\newlabel{fig:eeprom_state@cref}{{[figure][2][]2}{[1][7][]19}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces State machine of the LAYR authentication core (\texttt  {layr\_core.v}). Yellow states invoke the AES engine; blue states exchange APDU bytes with the NFC interface; green states drive the unlock output. Any non-terminal state returns to IDLE if the NFC link drops.}}{20}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:layr_state}{{3}{20}{State machine of the LAYR authentication core (\texttt {layr\_core.v}). Yellow states invoke the AES engine; blue states exchange APDU bytes with the NFC interface; green states drive the unlock output. Any non-terminal state returns to IDLE if the NFC link drops}{figure.caption.18}{}}
+\newlabel{fig:layr_state@cref}{{[figure][3][]3}{[1][7][]20}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces State machine of the NFC interface module (\texttt  {mfrc522\_apdu\_interface.v}). The four phase groups run left to right: hardware reset and configuration, ISO\nonbreakingspace 14443-A card detection (REQA/ANTICOLL/SELECT), ISO\nonbreakingspace 14443-4 link bring-up (RATS/ATS, timer reconfiguration, and SFGT wait), and transparent APDU I-block exchange including WTX handling.}}{21}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:nfc_state}{{7}{21}{State machine of the NFC interface module (\texttt {mfrc522\_apdu\_interface.v}). The four phase groups run left to right: hardware reset and configuration, ISO~14443-A card detection (REQA/ANTICOLL/SELECT), ISO~14443-4 link bring-up (RATS/ATS, timer reconfiguration, and SFGT wait), and transparent APDU I-block exchange including WTX handling}{figure.caption.42}{}}
+\newlabel{fig:nfc_state@cref}{{[figure][7][]7}{[1][16][]21}{}{}{}}
+\newlabel{TotPages}{{21}{21}{}{page.21}{}}
+\gdef \@abspage@last{21}

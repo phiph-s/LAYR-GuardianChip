@@ -1,0 +1,11 @@
+Not converting the feedback to the KLayout database format: 17208 > MAGIC_FEEDBACK_CONVERSION_THRESHOLD (10000). You may manually increase the threshold, but it might take forever.
+Setup violations found in the following corners:
+* nom_slow_1p08V_125C
+Max Slew violations found in the following corners:
+* nom_slow_1p08V_125C
+* nom_typ_1p20V_25C
+Max Cap violations found in the following corners:
+* nom_fast_1p32V_m40C
+* nom_slow_1p08V_125C
+* nom_typ_1p20V_25C
+magic__drc_error__count not reported. Magic.DRC may have been skipped.

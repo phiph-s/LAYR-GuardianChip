@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_key"
+        android:title="Key"
+        android:icon="@drawable/ic_nfc" />
+    <item
+        android:id="@+id/nav_rollover"
+        android:title="Rollover"
+        android:icon="@drawable/ic_rollover" />
+    <item
+        android:id="@+id/nav_key_management"
+        android:title="Key Management"
+        android:icon="@drawable/ic_key_management" />
+</menu>

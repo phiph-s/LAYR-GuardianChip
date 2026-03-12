@@ -1,0 +1,12 @@
+PDK: ihp-sg13g2
+layers:
+  Metal2:
+    algorithm: [Track, Square]
+    density: 45
+    deviation: 10
+    tile_width: 400
+  Metal3:
+    algorithm: [Track, Square]
+    density: 45
+    deviation: 10
+    tile_width: 400

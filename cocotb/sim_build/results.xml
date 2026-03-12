@@ -1,0 +1,19 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1773078688" />
+    <testcase name="test_successful_auth" classname="test_layr_core" file="/home/phiph/Downloads/OCDCPro-padframe-main/24/cocotb/test_layr_core.py" lineno="248" time="0.0197904109954834" sim_time_ns="33000.0" ratio_time="1667474.2130181792">
+      <failure error_type="AssertionError" error_msg="Bad SELECT header: [0, 0, 164, 4, 0, 6, 240, 0, 0, 12, 220, 1, 0]" />
+    </testcase>
+    <testcase name="test_id_not_in_whitelist" classname="test_layr_core" file="/home/phiph/Downloads/OCDCPro-padframe-main/24/cocotb/test_layr_core.py" lineno="278" time="0.0025479793548583984" sim_time_ns="34000.00000000001" ratio_time="13343907.176943954">
+      <failure error_type="AssertionError" error_msg="Bad SELECT header: [0, 0, 164, 4, 0, 6, 240, 0, 0, 12, 220, 1, 0]" />
+    </testcase>
+    <testcase name="test_wrong_psk" classname="test_layr_core" file="/home/phiph/Downloads/OCDCPro-padframe-main/24/cocotb/test_layr_core.py" lineno="294" time="0.5357887744903564" sim_time_ns="229000.0" ratio_time="427407.2375215874">
+      <failure error_type="OverflowError" error_msg="int too big to convert" />
+    </testcase>
+    <testcase name="test_key_rollover" classname="test_layr_core" file="/home/phiph/Downloads/OCDCPro-padframe-main/24/cocotb/test_layr_core.py" lineno="345" time="0.015486001968383789" sim_time_ns="34000.0" ratio_time="2195531.1686912077">
+      <failure error_type="AssertionError" error_msg="Bad SELECT header: [0, 0, 164, 4, 0, 6, 240, 0, 0, 12, 220, 1, 0]" />
+    </testcase>
+    <testcase name="test_link_drop_mid_transaction" classname="test_layr_core" file="/home/phiph/Downloads/OCDCPro-padframe-main/24/cocotb/test_layr_core.py" lineno="378" time="0.004546642303466797" sim_time_ns="82000.0" ratio_time="18035287.25747247" />
+    <testcase name="test_select_failure" classname="test_layr_core" file="/home/phiph/Downloads/OCDCPro-padframe-main/24/cocotb/test_layr_core.py" lineno="413" time="0.0025560855865478516" sim_time_ns="39000.0" ratio_time="15257705.064826041" />
+  </testsuite>
+</testsuites>

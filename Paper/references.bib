@@ -1,0 +1,266 @@
+% ============================================================
+% Guardian Chip – Bibliography
+% ============================================================
+
+% --- Standards ---
+
+@techreport{fips197,
+  author      = {{National Institute of Standards and Technology}},
+  title       = {{FIPS PUB 197: Advanced Encryption Standard (AES)}},
+  institution = {National Institute of Standards and Technology},
+  year        = {2001},
+  type        = {Federal Information Processing Standard},
+  number      = {197},
+  address     = {Gaithersburg, MD, USA},
+  note        = {\url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf}}
+}
+
+@techreport{iso14443-4,
+  author      = {{ISO/IEC}},
+  title       = {{ISO/IEC 14443-4:2018 -- Identification cards -- Contactless integrated circuit cards -- Proximity cards -- Part 4: Transmission protocol}},
+  institution = {International Organization for Standardization},
+  year        = {2018},
+  type        = {International Standard},
+  number      = {14443-4}
+}
+
+@techreport{iso14443-3,
+  author      = {{ISO/IEC}},
+  title       = {{ISO/IEC 14443-3:2018 -- Identification cards -- Contactless integrated circuit cards -- Proximity cards -- Part 3: Initialization and anticollision}},
+  institution = {International Organization for Standardization},
+  year        = {2018},
+  type        = {International Standard},
+  number      = {14443-3}
+}
+
+% --- Cryptography ---
+
+@inproceedings{canright2005,
+  author    = {David Canright},
+  title     = {A Very Compact {Rijndael} {S-box}},
+  booktitle = {Cryptographic Hardware and Embedded Systems -- CHES 2005},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {3659},
+  pages     = {441--455},
+  publisher = {Springer},
+  year      = {2005},
+  doi       = {10.1007/11545262_32}
+}
+
+@book{daemen2002,
+  author    = {Joan Daemen and Vincent Rijmen},
+  title     = {The Design of {Rijndael}: {AES} -- The Advanced Encryption Standard},
+  publisher = {Springer},
+  year      = {2002},
+  address   = {Berlin, Heidelberg},
+  isbn      = {978-3-540-42580-9}
+}
+
+@inproceedings{bogdanov2007present,
+  author    = {Bogdanov, Andrey and Knudsen, Lars R. and Leander, Gregor and Paar, Christof and Poschmann, Axel and Robshaw, Matthew J.B. and Seurin, Yannick and Vikkelsoe, Charlotte},
+  title     = {{PRESENT}: An Ultra-Lightweight Block Cipher},
+  booktitle = {Cryptographic Hardware and Embedded Systems -- CHES 2007},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {4727},
+  pages     = {450--466},
+  publisher = {Springer},
+  year      = {2007},
+  doi       = {10.1007/978-3-540-74735-2_31}
+}
+
+% --- Hardware AES ---
+
+@inproceedings{satoh2001,
+  author    = {Satoh, Akashi and Morioka, Sumio and Takano, Kohji and Munetoh, Seiji},
+  title     = {A Compact Rijndael Hardware Architecture with {S-Box} Optimization},
+  booktitle = {Advances in Cryptology -- ASIACRYPT 2001},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {2248},
+  pages     = {239--254},
+  publisher = {Springer},
+  year      = {2001},
+  doi       = {10.1007/3-540-45682-1_15}
+}
+
+@article{feldhofer2004rfid,
+  author  = {Feldhofer, Martin and Dominikus, Sandra and Wolkerstorfer, Johannes},
+  title   = {Strong Authentication for {RFID} Systems Using the {AES} Algorithm},
+  journal = {Lecture Notes in Computer Science},
+  volume  = {3156},
+  pages   = {357--370},
+  year    = {2004},
+  note    = {Cryptographic Hardware and Embedded Systems -- CHES 2004},
+  doi     = {10.1007/978-3-540-28632-5_26}
+}
+
+% --- NFC / Access Control Security ---
+
+@inproceedings{hancke2005relay,
+  author    = {Hancke, Gerhard P. and Kuhn, Markus G.},
+  title     = {An {RFID} Distance Bounding Protocol},
+  booktitle = {First International Conference on Security and Privacy for Emerging Areas in Communications Networks (SecureComm)},
+  pages     = {67--73},
+  publisher = {IEEE},
+  year      = {2005},
+  doi       = {10.1109/SECURECOMM.2005.56}
+}
+
+@article{habraken2011mutual,
+  author  = {Habraken, G. and Jansen, T. and Langendoen, K.},
+  title   = {Mutual Authentication in {ISO}/IEC 14443},
+  journal = {Master's Thesis, Delft University of Technology},
+  year    = {2007}
+}
+
+@inproceedings{dolev1983protocol,
+  author    = {Dolev, Danny and Yao, Andrew C.},
+  title     = {On the Security of Public Key Protocols},
+  booktitle = {IEEE Transactions on Information Theory},
+  volume    = {29},
+  number    = {2},
+  pages     = {198--208},
+  year      = {1983},
+  doi       = {10.1109/TIT.1983.1056650}
+}
+
+% --- Datasheets ---
+
+@manual{mfrc522,
+  author       = {{NXP Semiconductors}},
+  title        = {{MFRC522}: Standard performance {MIFARE} and {NTAG} Frontend},
+  organization = {NXP Semiconductors},
+  year         = {2016},
+  edition      = {Rev. 3.9},
+  note         = {\url{https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf}}
+}
+
+@manual{at25010b,
+  author       = {{Microchip Technology}},
+  title        = {{AT25010B/020B/040B}: 1K/2K/4K {SPI} Bus Serial {EEPROM}},
+  organization = {Microchip Technology Inc.},
+  year         = {2013},
+  note         = {\url{https://ww1.microchip.com/downloads/en/devicedoc/atmel-8707-seeprom-at25010b-020b-040b-datasheet.pdf}}
+}
+
+% --- Open-Source EDA / PDK ---
+
+@misc{gdsfill,
+  author       = {{aesc-silicon}},
+  title        = {\texttt{gdsfill}: Metal Density Fill Tool for Open-Source {PDKs}},
+  year         = {2026},
+  howpublished = {GitHub: \url{https://github.com/aesc-silicon/gdsfill}},
+  note         = {Supports IHP~SG13G2 and Sky130; Track and Square tiling algorithms}
+}
+
+@inproceedings{shalan2020openlane,
+  author    = {Shalan, Mohamed and Edwards, Tim},
+  title     = {Building Open Source {EDA}: Infrastructure for {IC} Design},
+  booktitle = {2020 57th ACM/IEEE Design Automation Conference (DAC)},
+  pages     = {1--4},
+  publisher = {IEEE},
+  year      = {2020},
+  doi       = {10.1109/DAC18072.2020.9218632}
+}
+
+@misc{ihpsg13g2,
+  author       = {{IHP -- Leibniz-Institut für innovative Mikroelektronik}},
+  title        = {{IHP} Open Source {PDK}: {SG13G2} 130~nm {BiCMOS} Technology},
+  year         = {2023},
+  note         = {GitHub: \url{https://github.com/IHP-GmbH/IHP-Open-PDK}},
+  howpublished = {Open-Source Repository}
+}
+
+@misc{librelane,
+  author       = {{IHP-GmbH}},
+  title        = {{LibreLane} Full-Chip Flow Template for {IHP} {SG13G2} {OpenPDK}},
+  year         = {2024},
+  howpublished = {GitHub: \url{https://github.com/IHP-GmbH/ihp-sg13g2-librelane-template}},
+  note         = {Apache-2.0 license}
+}
+
+% --- HCE / Android ---
+
+@inproceedings{roland2012hce,
+  author    = {Roland, Michael and Langer, Josef and Scharinger, Josef},
+  title     = {Applying Relay Attacks to {Google Wallet}},
+  booktitle = {5th International Workshop on Near Field Communication (NFC)},
+  publisher = {IEEE},
+  year      = {2013},
+  doi       = {10.1109/NFC.2013.6482441}
+}
+
+@article{emvco2014,
+  author  = {{EMVCo}},
+  title   = {{EMV} Contactless Specifications for Payment Systems -- Book C-2: Kernel 2 Specification},
+  year    = {2014},
+  journal = {EMVCo Specification},
+  note    = {Version 2.5}
+}
+
+@misc{android_hce,
+  author       = {{Google LLC}},
+  title        = {Host-based Card Emulation Overview},
+  year         = {2024},
+  howpublished = {Android Developers Documentation},
+  note         = {\url{https://developer.android.com/develop/connectivity/nfc/hce}}
+}
+
+% --- Challenge-Response Authentication ---
+
+@inproceedings{schnorr1991,
+  author    = {Schnorr, C. P.},
+  title     = {Efficient Signature Generation by Smart Cards},
+  journal   = {Journal of Cryptology},
+  volume    = {4},
+  number    = {3},
+  pages     = {161--174},
+  year      = {1991},
+  doi       = {10.1007/BF00196725}
+}
+
+@misc{ocdc_layr,
+  author       = {{LAYR Team / OCDC}},
+  title        = {{LAYR Open Chip Challenge 25/26}},
+  year         = {2025},
+  howpublished = {GitHub: \url{https://github.com/OCDCpro/LAYR}},
+  note         = {Challenge description and hardware kit specification}
+}
+
+@misc{layr_javacard,
+  author       = {{OCDC}},
+  title        = {{LAYR JavaCard Applet}},
+  year         = {2025},
+  howpublished = {GitHub: \url{https://github.com/OCDCpro/javacard-applet}},
+  note         = {Reference implementation of the LAYR protocol on JavaCard}
+}
+
+@misc{ehab_aes_verilog,
+  author       = {Michael Ehab},
+  title        = {{AES-Verilog}: {AES-128} Hardware Implementation in {Verilog}},
+  year         = {2022},
+  howpublished = {GitHub: \url{https://github.com/michaelehab/AES-Verilog}},
+  note         = {Single-cycle, fully unrolled combinatorial AES-128 datapath}
+}
+
+@misc{canright_github,
+  author       = {coorus},
+  title        = {Canright {AES} {S-boxes} -- {Verilog} Implementation},
+  year         = {2015},
+  howpublished = {GitHub: \url{https://github.com/coruus/canright-aes-sboxes}},
+  note         = {Verilog implementation of Canright's compact Rijndael S-box}
+}
+
+@misc{seeed_pn532,
+  author       = {{Seeed Studio}},
+  title        = {{PN532 NFC Library for Arduino}},
+  year         = {2024},
+  howpublished = {GitHub: \url{https://github.com/Seeed-Studio/PN532}},
+  note         = {Arduino library for the NXP PN532 NFC controller}
+}
+
+@misc{ihp_mpp,
+  author       = {{IHP -- Leibniz-Institut für innovative Mikroelektronik}},
+  title        = {{IHP Microelectronics}},
+  year         = {2025},
+  howpublished = {\url{https://www.ihp-microelectronics.com/}}
+}

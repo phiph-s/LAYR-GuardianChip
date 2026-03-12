@@ -1,0 +1,162 @@
+@startuml layr_auth_state
+title Guardian Chip - LAYR Core State Machine (layr_core.v)
+
+skinparam state {
+  BackgroundColor<<crypto>> LightYellow
+  BackgroundColor<<io>>     LightBlue
+  BackgroundColor<<result>> LightGreen
+  BackgroundColor<<write>>  LightGray
+  BorderColor Black
+  FontSize 9
+}
+skinparam defaultFontSize 9
+skinparam ArrowFontSize 8
+
+[*] --> IDLE
+IDLE : busy=0, unlock=0, fault=0
+
+' --- Phase 1: AID Selection ---
+state "1. AID Selection" as PH_AID {
+  state SEND_SELECT <<io>>
+  SEND_SELECT : TX SELECT AID
+  SEND_SELECT --> WAIT_SELECT
+
+  state WAIT_SELECT <<io>>
+  WAIT_SELECT : RX SW1/SW2
+}
+
+' --- Phase 2: Authentication Init ---
+state "2. Auth Init" as PH_INIT {
+  state AUTH_INIT_SEND <<io>>
+  AUTH_INIT_SEND : TX AUTH_INIT (INS=10h) / 30ms warmup
+  AUTH_INIT_SEND --> AUTH_INIT_WAIT
+
+  state AUTH_INIT_WAIT <<io>>
+  AUTH_INIT_WAIT : RX AES_psk(rc||0) + SW
+  AUTH_INIT_WAIT --> DEC_RC_START
+
+  state DEC_RC_START <<crypto>>
+  DEC_RC_START : AES decrypt / psk_key
+  DEC_RC_START --> DEC_RC_WAIT
+
+  state DEC_RC_WAIT <<crypto>>
+  DEC_RC_WAIT : wait done / rc=out[127:64]
+  DEC_RC_WAIT --> GEN_RT_REQ
+
+  state GEN_RT_REQ <<crypto>>
+  GEN_RT_REQ : AES encrypt / 0||counter
+  GEN_RT_REQ --> GEN_RT_WAIT
+
+  state GEN_RT_WAIT <<crypto>>
+  GEN_RT_WAIT : wait done\nrt=out[63:0]\nk_eph=rc||rt / counter++
+}
+
+' --- Phase 3: Challenge-Response ---
+state "3. Challenge Response" as PH_RESP {
+  state ENC_AUTH_START <<crypto>>
+  ENC_AUTH_START : AES encrypt / rt||rc
+  ENC_AUTH_START --> ENC_AUTH_WAIT
+
+  state ENC_AUTH_WAIT <<crypto>>
+  ENC_AUTH_WAIT : wait aes_done
+  ENC_AUTH_WAIT --> AUTH_SEND
+
+  state AUTH_SEND <<io>>
+  AUTH_SEND : TX AUTH (INS=11h) + cipher
+  AUTH_SEND --> AUTH_WAIT
+
+  state AUTH_WAIT <<io>>
+  AUTH_WAIT : RX AES_keph(AUTH_SUCCESS) + SW
+  AUTH_WAIT --> DEC_AUTH_START
+
+  state DEC_AUTH_START <<crypto>>
+  DEC_AUTH_START : AES decrypt / k_eph
+  DEC_AUTH_START --> DEC_AUTH_WAIT
+
+  state DEC_AUTH_WAIT <<crypto>>
+  DEC_AUTH_WAIT : wait aes_done
+}
+
+' --- Phase 4: ID Verification ---
+state "4. ID Verification" as PH_ID {
+  state GET_ID_SEND <<io>>
+  GET_ID_SEND : TX GET_ID (INS=12h)
+  GET_ID_SEND --> GET_ID_WAIT
+
+  state GET_ID_WAIT <<io>>
+  GET_ID_WAIT : RX AES_keph(id) + SW
+  GET_ID_WAIT --> DEC_ID_START
+
+  state DEC_ID_START <<crypto>>
+  DEC_ID_START : AES decrypt / k_eph
+  DEC_ID_START --> DEC_ID_WAIT
+
+  state DEC_ID_WAIT <<crypto>>
+  DEC_ID_WAIT : wait aes_done
+}
+
+' --- Result states ---
+state SUCCESS_HOLD <<result>>
+SUCCESS_HOLD : unlock=1 / 3 000 ms
+
+FAIL_HOLD : fault=1 / 3 000 ms
+
+' --- Phase 5: Key Rollover (optional) ---
+state "5. Key Rollover" as PH_KEY {
+  state GET_NEW_KEY_SEND <<io>>
+  GET_NEW_KEY_SEND : TX GET_NEW_KEY (INS=21h)
+  GET_NEW_KEY_SEND --> GET_NEW_KEY_WAIT
+
+  state GET_NEW_KEY_WAIT <<io>>
+  GET_NEW_KEY_WAIT : RX AES_keph(new_key) + SW
+  GET_NEW_KEY_WAIT --> DEC_NEW_KEY_START
+
+  state DEC_NEW_KEY_START <<crypto>>
+  DEC_NEW_KEY_START : AES decrypt / k_eph
+  DEC_NEW_KEY_START --> DEC_NEW_KEY_WAIT
+
+  state DEC_NEW_KEY_WAIT <<crypto>>
+  DEC_NEW_KEY_WAIT : wait aes_done
+  DEC_NEW_KEY_WAIT --> WRITE_KEY_REQ
+
+  state WRITE_KEY_REQ <<write>>
+  WRITE_KEY_REQ : request EEPROM key write
+  WRITE_KEY_REQ --> WRITE_KEY_WAIT
+
+  state WRITE_KEY_WAIT <<write>>
+  WRITE_KEY_WAIT : wait key_write_done
+}
+
+' --- Phase 6: Counter Persistence ---
+state "6. Counter Persistence" as PH_CTR {
+  state WRITE_CTR_REQ <<write>>
+  WRITE_CTR_REQ : write counter to EEPROM / restart_link=1
+  WRITE_CTR_REQ --> WRITE_CTR_WAIT
+
+  state WRITE_CTR_WAIT <<write>>
+  WRITE_CTR_WAIT : wait counter_write_done
+}
+
+' --- Top-level transitions ---
+IDLE --> SEND_SELECT         : link_ready
+WAIT_SELECT --> AUTH_INIT_SEND : SW=9000
+WAIT_SELECT --> FAIL_HOLD    : SW!=9000
+AUTH_INIT_WAIT --> FAIL_HOLD : error
+GEN_RT_WAIT --> ENC_AUTH_START
+AUTH_WAIT --> FAIL_HOLD      : error
+DEC_AUTH_WAIT --> GET_ID_SEND : plain==AUTH_SUCCESS
+DEC_AUTH_WAIT --> FAIL_HOLD  : plain!=expected
+DEC_ID_WAIT --> SUCCESS_HOLD      : id in whitelist\n& !key_pending
+DEC_ID_WAIT --> GET_NEW_KEY_SEND  : id in whitelist\n& key_pending
+DEC_ID_WAIT --> FAIL_HOLD         : id not in list
+GET_NEW_KEY_WAIT --> FAIL_HOLD    : error
+WRITE_KEY_WAIT --> SUCCESS_HOLD
+SUCCESS_HOLD --> WRITE_CTR_REQ : counter_dirty
+SUCCESS_HOLD --> IDLE
+FAIL_HOLD --> WRITE_CTR_REQ  : counter_dirty
+FAIL_HOLD --> IDLE
+WRITE_CTR_WAIT --> IDLE
+
+note "Any active state -> IDLE\nif link drops (link_seen=1)\n[except WRITE_* states]" as N1
+
+@enduml

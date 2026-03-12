@@ -1,0 +1,83 @@
+@startuml nfc_link_state
+!pragma layout smetana
+title Guardian Chip - NFC Interface State Machine (mfrc522_apdu_interface.v)
+
+skinparam state {
+  BackgroundColor<<reset>>  LightCoral
+  BackgroundColor<<detect>> LightBlue
+  BackgroundColor<<iso4>>   LightYellow
+  BackgroundColor<<apdu>>   LightGreen
+  BorderColor black
+  FontSize 9
+}
+skinparam defaultFontSize 9
+skinparam ArrowFontSize 8
+
+[*] --> RESET_GRP
+
+state "Reset & Initialisation" as RESET_GRP <<reset>> {
+  [*] --> RESET_SOFT
+  RESET_SOFT : SoftReset MFRC522
+  RESET_SOFT --> RESET_WAIT
+  RESET_WAIT : wait reset delay
+  RESET_WAIT --> CONFIG
+  CONFIG : write Mode/TxASK/TxControl\nRFCfg/Timer registers
+  CONFIG --> CHECK_VERSION
+  CHECK_VERSION : read Version reg\nverify MFRC522 present
+}
+
+state "ISO 14443-A Card Detection" as CARD_GRP <<detect>> {
+  [*] --> POLL_IDLE
+  POLL_IDLE : poll 20 ms
+  POLL_IDLE --> REQA
+  REQA : send REQA (0x26)
+  REQA --> WAIT_ATQA
+  WAIT_ATQA : read FIFO / ComIrq
+  WAIT_ATQA --> ANTICOLL : ATQA received
+  WAIT_ATQA --> POLL_IDLE : timeout/error
+  ANTICOLL : send ANTICOLL (0x93 0x20)
+  ANTICOLL --> WAIT_UID
+  WAIT_UID : read UID (4+BCC)
+  WAIT_UID --> SELECT
+  SELECT : send SELECT\n(0x93 0x70 + UID + CRC)
+  SELECT --> WAIT_SAK
+  WAIT_SAK : read SAK
+  WAIT_SAK --> CARD_SELECTED : SAK OK
+  WAIT_SAK --> POLL_IDLE     : error
+  CARD_SELECTED : card selected / UID available
+}
+
+state "ISO 14443-4 Bring-up" as ISO4_GRP <<iso4>> {
+  [*] --> RATS_SEND
+  RATS_SEND : set TxMode/RxMode ISO14443-4\nsend RATS (E0 50 + CRC)
+  RATS_SEND --> RATS_WAIT
+  RATS_WAIT : receive ATS from card
+  RATS_WAIT --> RATS_OK
+  RATS_OK : enable RX CRC
+  RATS_OK --> CFG2_TMODE
+  CFG2_TMODE : re-write TMode\n(TAuto=1)
+  CFG2_TMODE --> CFG2_TPRESCALER
+  CFG2_TPRESCALER : re-write TPrescaler\nfor APDU phase
+  CFG2_TPRESCALER --> ATS_SFGT_WAIT
+  ATS_SFGT_WAIT : wait SFGT (10 ms)\nbefore first APDU
+}
+
+state "APDU Exchange (T=CL)" as APDU_GRP <<apdu>> {
+  [*] --> LINK_IDLE
+  LINK_IDLE : link_ready = 1\nwait app_tx_valid
+  LINK_IDLE --> TX_PHASE : app_tx_valid
+  TX_PHASE : I-block (PCB+payload)\nFIFO write / Transceive
+  TX_PHASE --> RX_PHASE
+  RX_PHASE : read FIFO / forward app_rx
+  RX_PHASE --> WTX_HANDLE : WTX received
+  RX_PHASE --> LINK_IDLE   : response complete
+  WTX_HANDLE : send WTX response
+  WTX_HANDLE --> RX_PHASE
+}
+
+RESET_GRP --> CARD_GRP  : init done
+CARD_GRP  --> ISO4_GRP  : card selected
+ISO4_GRP  --> APDU_GRP  : SFGT elapsed
+APDU_GRP  --> RESET_GRP : restart_link | hard_fault | timeout
+
+@enduml

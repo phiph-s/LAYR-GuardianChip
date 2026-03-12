@@ -1,0 +1,86 @@
+# ULX3S Pin Constraints for LAYR Demonstrator
+# Based on: https://github.com/OCDCpro/LAYR/tree/main/demonstrator
+
+# =========================================================================
+# Clock
+# =========================================================================
+LOCATE COMP "clk_25mhz" SITE "G2";
+IOBUF  PORT "clk_25mhz" IO_TYPE=LVCMOS33;
+FREQUENCY PORT "clk_25mhz" 25 MHZ;
+
+# =========================================================================
+# Buttons - Official ULX3S v2.x/v3.x pinout from ulx3s_v20.lpf
+# =========================================================================
+LOCATE COMP "btn[0]" SITE "D6";   # BTN_PWRn (active LOW, directly active)
+LOCATE COMP "btn[1]" SITE "R1";   # FIRE1
+LOCATE COMP "btn[2]" SITE "T1";   # FIRE2
+LOCATE COMP "btn[3]" SITE "R18";  # UP
+LOCATE COMP "btn[4]" SITE "V1";   # DOWN
+LOCATE COMP "btn[5]" SITE "U1";   # LEFT
+LOCATE COMP "btn[6]" SITE "H16";  # RIGHT
+
+IOBUF PORT "btn[0]" PULLMODE=UP   IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "btn[1]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "btn[2]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "btn[3]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "btn[4]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "btn[5]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "btn[6]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
+
+# =========================================================================
+# SPI Interface (MFRC522 and AT25010)
+# =========================================================================
+LOCATE COMP "spi_sclk"  SITE "D18";  # J2_17+ GP20
+LOCATE COMP "spi_cs_1"  SITE "C18";  # J2_23+ GP21 (AT25010)
+LOCATE COMP "spi_cs_0"  SITE "B15";  # J2_25+ GP22 (MFRC522)
+LOCATE COMP "spi_mosi"  SITE "B17";  # J2_27+ GP23
+LOCATE COMP "spi_miso"  SITE "C16";  # J2_29+ GP24
+
+IOBUF PORT "spi_sclk"  PULLMODE=UP   IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "spi_cs_1"  PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "spi_cs_0"  PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "spi_mosi"  PULLMODE=UP   IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "spi_miso"  PULLMODE=UP   IO_TYPE=LVCMOS33;
+
+# =========================================================================
+# UART Interface
+# =========================================================================
+LOCATE COMP "uart_txd"  SITE "D14";  # J2_31+ GP25
+LOCATE COMP "uart_rxd"  SITE "B13";  # J2_33+ GP26
+
+IOBUF PORT "uart_txd"  PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "uart_rxd"  PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
+
+# =========================================================================
+# Control Signals
+# =========================================================================
+LOCATE COMP "mode"       SITE "U18";  # J2_5+  GP14
+LOCATE COMP "busy"       SITE "N17";  # J2_7+  GP15
+LOCATE COMP "hard_fault" SITE "N16";  # J2_9+  GP16
+LOCATE COMP "unlock"     SITE "L16";  # J2_11+ GP17
+
+IOBUF PORT "mode"       PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "busy"       PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "hard_fault" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+IOBUF PORT "unlock"     PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# =========================================================================
+# ULX3S LEDs
+# =========================================================================
+LOCATE COMP "led[0]" SITE "B2";
+LOCATE COMP "led[1]" SITE "C2";
+LOCATE COMP "led[2]" SITE "C1";
+LOCATE COMP "led[3]" SITE "D2";
+LOCATE COMP "led[4]" SITE "D1";
+LOCATE COMP "led[5]" SITE "E2";
+LOCATE COMP "led[6]" SITE "E1";
+LOCATE COMP "led[7]" SITE "H3";
+
+IOBUF PORT "led[0]" IO_TYPE=LVCMOS33;
+IOBUF PORT "led[1]" IO_TYPE=LVCMOS33;
+IOBUF PORT "led[2]" IO_TYPE=LVCMOS33;
+IOBUF PORT "led[3]" IO_TYPE=LVCMOS33;
+IOBUF PORT "led[4]" IO_TYPE=LVCMOS33;
+IOBUF PORT "led[5]" IO_TYPE=LVCMOS33;
+IOBUF PORT "led[6]" IO_TYPE=LVCMOS33;
+IOBUF PORT "led[7]" IO_TYPE=LVCMOS33;
