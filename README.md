@@ -59,6 +59,7 @@ The following changes resolve all fill-related DRC, density, and Magic DRC viola
 | Keep-out 0.42 → 0.50 µm | M2Fil.c ×2 (fill-to-routing spacing) |
 | Density target 35 → 45 % | M2Fil.h ×7, M3Fil.h ×6 |
 
+Author: PHILIPP SEELOS, Hochschule RheinMain, Germany
 
 
 
