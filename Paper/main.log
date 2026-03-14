@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.10)  12 MAR 2026 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.10)  14 MAR 2026 01:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1147,24 +1147,24 @@ Package fancyhdr Warning: \headheight is too small (13.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
 
 [5.5] [6.6]
-<figures/eeprom_state.png, id=264, 1171.37625pt x 1803.73875pt>
+<figures/eeprom_state.png, id=265, 1171.37625pt x 1803.73875pt>
 File: figures/eeprom_state.png Graphic file (type png)
 <use figures/eeprom_state.png>
-Package pdftex.def Info: figures/eeprom_state.png  used on input line 559.
+Package pdftex.def Info: figures/eeprom_state.png  used on input line 565.
 (pdftex.def)             Requested size: 298.20546pt x 459.2041pt.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 563.
+(Font)              scaled to size 8.0pt on input line 569.
 
 
-Class acmart Warning: A possible image without description on input line 565.
+Class acmart Warning: A possible image without description on input line 571.
 
-<figures/layr_auth_state.png, id=267, 1179.40625pt x 1292.83pt>
+<figures/layr_auth_state.png, id=268, 1179.40625pt x 1292.83pt>
 File: figures/layr_auth_state.png Graphic file (type png)
 <use figures/layr_auth_state.png>
-Package pdftex.def Info: figures/layr_auth_state.png  used on input line 576.
+Package pdftex.def Info: figures/layr_auth_state.png  used on input line 582.
 (pdftex.def)             Requested size: 395.60345pt x 433.65802pt.
 
-Class acmart Warning: A possible image without description on input line 584.
+Class acmart Warning: A possible image without description on input line 590.
 
 
 Package fancyhdr Warning: \headheight is too small (13.0pt): 
@@ -1174,13 +1174,13 @@ Package fancyhdr Warning: \headheight is too small (13.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
 
 [7.7]
-Underfull \hbox (badness 10000) in paragraph at lines 650--652
+Underfull \hbox (badness 10000) in paragraph at lines 656--658
 []\T1/LinuxLibertineT-TLF/m/n/9 (+20) Generate ran-dom $\OML/nxlmi/m/it/9 r[]$\
 T1/LinuxLibertineT-TLF/m/n/9 (+20) ; re-turn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 652--654
+Underfull \hbox (badness 10000) in paragraph at lines 658--660
 []\T1/LinuxLibertineT-TLF/m/n/9 (+20) Verify $\OML/nxlmi/m/it/9 r[]$\T1/LinuxLi
 bertineT-TLF/m/n/9 (+20) ; com-pute $\OML/nxlmi/m/it/9 k[]$\T1/LinuxLibertineT-
 TLF/m/n/9 (+20) ; re-turn
@@ -1189,26 +1189,23 @@ TLF/m/n/9 (+20) ; re-turn
 <figures/app.png, id=281, 377.0085pt x 256.5585pt>
 File: figures/app.png Graphic file (type png)
 <use figures/app.png>
-Package pdftex.def Info: figures/app.png  used on input line 676.
+Package pdftex.def Info: figures/app.png  used on input line 682.
 (pdftex.def)             Requested size: 258.00539pt x 175.57709pt.
 
-Class acmart Warning: A possible image without description on input line 681.
+Class acmart Warning: A possible image without description on input line 687.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8.8]
-<figures/testkit.jpg, id=299, 186.6975pt x 135.1449pt>
+[8.8]
+<figures/testkit.jpg, id=296, 186.6975pt x 135.1449pt>
 File: figures/testkit.jpg Graphic file (type jpg)
 <use figures/testkit.jpg>
-Package pdftex.def Info: figures/testkit.jpg  used on input line 747.
+Package pdftex.def Info: figures/testkit.jpg  used on input line 750.
 (pdftex.def)             Requested size: 322.50346pt x 233.46132pt.
 
 
-Class acmart Warning: A possible image without description on input line 753.
+Class acmart Warning: A possible image without description on input line 756.
 
 
-Underfull \vbox (badness 1609) has occurred while \output is active []
+Underfull \vbox (badness 4001) has occurred while \output is active []
 
 
 
@@ -1226,21 +1223,18 @@ Package fancyhdr Warning: \headheight is too small (13.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
 
-[11.11]
-Underfull \vbox (badness 7030) has occurred while \output is active []
-
- [12.12]
+[11.11] [12.12]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 1005.
+(Font)              scaled to size 9.0pt on input line 1007.
 LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF
- on input line 1006.
+ on input line 1008.
 
 (/usr/share/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 1006.
+(Font)              scaled to size 9.0pt on input line 1008.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1254,15 +1248,15 @@ Package fancyhdr Warning: \headheight is too small (13.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
 
 [13.13{/usr/share/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
-<figures/klayout_final_gds.png, id=347, 975.645pt x 865.2325pt>
+<figures/klayout_final_gds.png, id=342, 975.645pt x 865.2325pt>
 File: figures/klayout_final_gds.png Graphic file (type png)
 <use figures/klayout_final_gds.png>
-Package pdftex.def Info: figures/klayout_final_gds.png  used on input line 1063
+Package pdftex.def Info: figures/klayout_final_gds.png  used on input line 1065
 .
 (pdftex.def)             Requested size: 141.9023pt x 125.83176pt.
 
 
-Class acmart Warning: A possible image without description on input line 1069.
+Class acmart Warning: A possible image without description on input line 1071.
 
 [14.14 <./figures/klayout_final_gds.png>]
 
@@ -1273,32 +1267,21 @@ Package fancyhdr Warning: \headheight is too small (13.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
 
 [15.15]
-<figures/nfc_link_state.png, id=375, 843.15pt x 1106.1325pt>
+<figures/nfc_link_state.png, id=370, 843.15pt x 1106.1325pt>
 File: figures/nfc_link_state.png Graphic file (type png)
 <use figures/nfc_link_state.png>
-Package pdftex.def Info: figures/nfc_link_state.png  used on input line 1241.
+Package pdftex.def Info: figures/nfc_link_state.png  used on input line 1243.
 (pdftex.def)             Requested size: 341.48674pt x 448.00171pt.
 
 
-Class acmart Warning: A possible image without description on input line 1250.
+Class acmart Warning: A possible image without description on input line 1252.
 
 [16.16] (./main.bbl
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 7.0pt on input line 44.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.3pt on input line 46.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (13.0pt): 
-(fancyhdr)                Make it at least 20.48303pt, for example:
-(fancyhdr)                \setlength{\headheight}{20.48303pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
-
-[17.17])
+)
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -1314,7 +1297,6 @@ portant to optimize color contrast for the visually impaired. Taking these impo
 rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
-[18.18]
 
 Package fancyhdr Warning: \headheight is too small (13.0pt): 
 (fancyhdr)                Make it at least 20.48303pt, for example:
@@ -1322,8 +1304,7 @@ Package fancyhdr Warning: \headheight is too small (13.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
 
-[19.19 <./figures/eeprom_state.png>] [20.20 <./figures/layr_auth_state.png (PNG
- copy)>]
+[17.17] [18.18 <./figures/eeprom_state.png>]
 
 Package fancyhdr Warning: \headheight is too small (13.0pt): 
 (fancyhdr)                Make it at least 20.48303pt, for example:
@@ -1331,27 +1312,28 @@ Package fancyhdr Warning: \headheight is too small (13.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-7.48303pt}.
 
+[19.19 <./figures/layr_auth_state.png (PNG copy)>]
 (/usr/share/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 (/usr/share/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [21.21 <./figures/nfc_link_state.png (PNG copy)>] (./main.aux)
+) [20.20 <./figures/nfc_link_state.png (PNG copy)>] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 86D67EDFE889D857A63695C2286C7A6F;6718.
+(rerunfilecheck)             Checksum: 1090D70BB7972C04C8F270B5869C5A15;6718.
  ) 
 Here is how much of TeX's memory you used:
- 24754 strings out of 469515
- 408296 string characters out of 5470807
- 886461 words of memory out of 5000000
- 52213 multiletter control sequences out of 15000+600000
- 797739 words of font info for 432 fonts, out of 8000000 for 9000
+ 24743 strings out of 469515
+ 408045 string characters out of 5470807
+ 883461 words of memory out of 5000000
+ 52207 multiletter control sequences out of 15000+600000
+ 797636 words of font info for 430 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
- 90i,15n,131p,1001b,749s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,15n,131p,1001b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></
 usr/share/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/
 share/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texmf
@@ -1363,10 +1345,10 @@ LibertineT.pfb></usr/share/texmf-dist/fonts/type1/public/libertine/LinLibertine
 TB.pfb></usr/share/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb><
 /usr/share/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texmf-dis
 t/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (21 pages, 1260566 bytes).
+Output written on main.pdf (20 pages, 1259532 bytes).
 PDF statistics:
- 527 PDF objects out of 1000 (max. 8388607)
- 459 compressed objects within 5 object streams
- 140 named destinations out of 1000 (max. 500000)
+ 514 PDF objects out of 1000 (max. 8388607)
+ 447 compressed objects within 5 object streams
+ 138 named destinations out of 1000 (max. 500000)
  95548 words of extra memory for PDF output out of 106986 (max. 10000000)
 

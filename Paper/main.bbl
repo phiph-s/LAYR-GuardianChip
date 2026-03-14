@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{23}
+\begin{thebibliography}{21}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -122,17 +122,6 @@
 \href{https://doi.org/10.1007/978-3-540-28632-5_26}{doi:\nolinkurl{10.1007/978-3-540-28632-5_26}}
 \newblock
 \shownote{Cryptographic Hardware and Embedded Systems -- CHES 2004}.
-
-
-\bibitem[{Google LLC}(2024)]%
-        {android_hce}
-\bibfield{author}{\bibinfo{person}{{Google LLC}}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \bibinfo{title}{Host-based Card Emulation Overview}.
-\newblock \bibinfo{howpublished}{Android Developers Documentation}.
-\newblock
-\newblock
-\shownote{\url{https://developer.android.com/develop/connectivity/nfc/hce}}.
 
 
 \bibitem[Hancke and Kuhn(2005)]%
@@ -302,17 +291,6 @@
 \newblock
 \newblock
 \shownote{Arduino library for the NXP PN532 NFC controller}.
-
-
-\bibitem[Shalan and Edwards(2020)]%
-        {shalan2020openlane}
-\bibfield{author}{\bibinfo{person}{Mohamed Shalan} {and} \bibinfo{person}{Tim
-  Edwards}.} \bibinfo{year}{2020}\natexlab{}.
-\newblock \showarticletitle{Building Open Source {EDA}: Infrastructure for {IC}
-  Design}. In \bibinfo{booktitle}{\emph{2020 57th ACM/IEEE Design Automation
-  Conference (DAC)}}. \bibinfo{publisher}{IEEE}, \bibinfo{pages}{1--4}.
-\newblock
-\href{https://doi.org/10.1109/DAC18072.2020.9218632}{doi:\nolinkurl{10.1109/DAC18072.2020.9218632}}
 
 
 \end{thebibliography}

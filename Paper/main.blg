@@ -22,46 +22,45 @@ Warning--empty address in hancke2005relay
 Warning--empty address in roland2012hce
 Warning--page numbers missing in both pages and numpages fields in roland2012hce
 Warning--empty address in satoh2001
-Warning--empty address in shalan2020openlane
-You've used 23 entries,
+You've used 21 entries,
             6273 wiz_defined-function locations,
-            1660 strings with 22483 characters,
-and the built_in function-call counts, 20146 in all, are:
-= -- 2402
-> -- 481
+            1648 strings with 22132 characters,
+and the built_in function-call counts, 18279 in all, are:
+= -- 2193
+> -- 433
 < -- 3
-+ -- 141
-- -- 190
-* -- 1213
-:= -- 2022
-add.period$ -- 132
-call.type$ -- 23
-change.case$ -- 126
-chr.to.int$ -- 22
-cite$ -- 34
-duplicate$ -- 1939
-empty$ -- 1364
-format.name$ -- 214
-if$ -- 4634
++ -- 126
+- -- 169
+* -- 1100
+:= -- 1835
+add.period$ -- 121
+call.type$ -- 21
+change.case$ -- 115
+chr.to.int$ -- 20
+cite$ -- 31
+duplicate$ -- 1754
+empty$ -- 1234
+format.name$ -- 189
+if$ -- 4205
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 38
-newline$ -- 252
-num.names$ -- 160
-pop$ -- 652
+missing$ -- 33
+newline$ -- 234
+num.names$ -- 146
+pop$ -- 582
 preamble$ -- 1
-purify$ -- 307
+purify$ -- 280
 quote$ -- 0
-skip$ -- 765
+skip$ -- 692
 stack$ -- 0
-substring$ -- 1533
-swap$ -- 159
+substring$ -- 1396
+swap$ -- 145
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 656
-warning$ -- 11
-while$ -- 166
+type$ -- 596
+warning$ -- 10
+while$ -- 149
 width$ -- 0
-write$ -- 499
-(There were 11 warnings)
+write$ -- 459
+(There were 10 warnings)

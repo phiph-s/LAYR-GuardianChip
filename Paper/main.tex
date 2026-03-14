@@ -190,7 +190,7 @@ The chip integrates five main RTL subsystems around a shared SPI bus:
   \item \textbf{NFC Interface} (\texttt{mfrc522\_apdu\_interface}) –
         drives the MFRC522 reader, performs ISO~14443-A card detection,
         brings up an ISO~14443-4 link (RATS / ATS exchange), and
-        provides a byte-stream APDU interface to the authentication core.
+        provides a byte-stream APDU interface to the LAYR authentication core.
   \item \textbf{LAYR Core} (\texttt{layr\_core}) – implements the
         complete state machine for the LAYR Level~1 protocol,
         including a key-rollover extension designed beyond the
@@ -411,7 +411,14 @@ The default configuration produces a 4\,MHz SPI clock (8-cycle period).
 
 This module is responsible for all communication with the MFRC522
 NFC reader chip and the underlying card.
-It operates in two main phases, shown in \cref{fig:nfc_state}:
+It operates in four main phases, shown in \cref{fig:nfc_state}:
+
+\paragraph{Phase~0 – Reset and initialization.}
+To get the reader into a state where it can detect cards,
+the module issues a \texttt{SoftReset} to the MFRC522, writes the operating
+registers (modulation, antenna, gain, timer), and reads back the \texttt{Version}
+register to confirm the chip is present before advancing to card detection.
+
 
 \paragraph{Phase~1 – ISO~14443-A card detection.}
 The module periodically sends a REQA command (\texttt{0x26})
@@ -436,7 +443,7 @@ are explicitly excluded from the \texttt{link\_ready} condition
 so that the LAYR core cannot begin an APDU transaction before the
 card is ready to receive the first frame.
 
-\paragraph{APDU exchange.}
+\paragraph{Phase~3 - APDU exchange.}
 Once \texttt{link\_ready} is asserted, the module transparently
 forwards APDU bytes between the application layer (\texttt{app\_tx}/
 \texttt{app\_rx}) and the card, framing them in ISO~14443-4 I-blocks.
@@ -500,8 +507,7 @@ construction ($r_T = \text{AES}_{k_\text{psk}}(0^{64} \| \mathit{ctr})_{\text{lo
 which reuses the single AES core that is already needed for the
 authentication steps.
 This also eliminated a separate LFSR-based nonce generator that had
-been present in an intermediate design, halving the silicon area
-required for the cryptographic portion of the chip.
+been present in an intermediate design.
 
 \subsection{EEPROM Interface (\texttt{at25010\_interface.v})}
 \label{sec:impl:eeprom}
@@ -663,12 +669,12 @@ The user interface consists of three fragments (\cref{fig:app}):
   \item \emph{Key}: the main fragment for regular Level~1
         authentication; displays the current transaction status
         (idle, communicating, success, failure) and the active PSK.
-  \item \emph{Key Management}: allows updating the card's PSK by
-        entering a 32-character hexadecimal string.
   \item \emph{Rollover}: configures the new key to be distributed
         in the next successful transaction and enables rollover mode,
         causing GET\_ID to return \texttt{SW=0x9001} so the terminal
         requests and stores the new key.
+  \item \emph{Key Management}: allows updating the card's PSK by
+        entering a 32-character hexadecimal string.
 \end{itemize}
 
 \begin{figure}[H]
@@ -685,15 +691,15 @@ operations use the standard Android \texttt{javax.crypto} AES/ECB
 cipher—to match the hardware behaviour exactly and serve as a
 ground truth for debugging.
 
-\paragraph{Simulator limitation: screen-lock dependency.}
-Android's HCE framework only routes NFC APDUs to a registered
-\texttt{HostApduService} when the device screen is on and the phone
-is unlocked~\cite{android_hce}.
-In practice this means the simulator cannot be used as a passive,
-always-on card emulator: the phone must be actively unlocked before
-each test transaction.
-This is not a limitation of the protocol or the FPGA design, but it
-is worth noting for anyone reproducing the test setup.
+\paragraph{Simulator limitation: JavaCard compatibility.}
+
+A third-party LAYR protocol implementation rejected the Android HCE application
+entirely.
+The likely cause is that the implementation targeted JavaCards exclusively and
+relied on card-specific behaviour that Android HCE does not reproduce exactly~--
+for example, differences in APDU framing, ATS parameters, or response timing.
+The Guardian Chip design was verified against both a physical JavaCard and the
+Android HCE simulator without modification.
 
 % ===============================================================
 \section{Physical Design}
@@ -708,9 +714,6 @@ process~\cite{ihpsg13g2}.
 SG13G2 provides a 130\,nm CMOS baseline layer stack suitable for
 digital logic and has been released with a fully open-source PDK
 under the Apache~2.0 license.
-The process was selected because it is accessible through the
-LibreLane/OpenLane open-source ASIC flow~\cite{librelane,shalan2020openlane}
-and was explicitly mandated by the LAYR challenge specification~\cite{ocdc_layr}.
 The submitted GDS will be physically manufactured by IHP,
 with fabrication expected in 2026~\cite{ihp_mpp}.
 
@@ -933,8 +936,7 @@ The subsequent work focused on integration and area optimisation:
   \item The single-cycle AES implementation was replaced by the custom
         iterative engine described in Section~\ref{sec:impl:aes},
         and the LFSR-based nonce generator was removed in favour of
-        the AES-CTR construction, reducing the logic footprint
-        by approximately half.
+        the AES-CTR construction.
   \item The \emph{coorus} composite-field S-box was integrated to
         further reduce the area of the AES core.
   \item An ID whitelist check with three pre-programmed default
